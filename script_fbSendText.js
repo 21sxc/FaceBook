@@ -275,32 +275,170 @@ function startVpn(params) {
 startVpn()
 
 const numWeb = {
-    "1": '6868app.com',
-    "2": 'rose001.club',
-    "3": 'rose002.club',
-    "4": 'rose003.club',
-    "0": 'rose004.club',
+    "1":  '6868app.com',
+    "2":  '44app.top',
+    "3":  '76app.top',
+    "4":  '45app.top',
+    "5":  '54app.top',
+    "6":  '42app.top',
+    "7":  '33app.top',
+    "8":  '18app.top',
+    "9":  '90app.top',
+    "10": '11app.top',
+    "11": '39app.top',
+    "12": '15app.top',
+    "13": '20app.top',
+    "14": '38app.top',
+    "15": '47app.top',
+    "16": '25app.top',
+    "17": '72app.top',
+    "18": '67app.top',
+    "19": '75app.top',
+    "20": '50app.top',
+    "21": '86app.top',
+    "22": '92app.top',
+    "23": '70app.top',
+    "24": '60app.top',
+    "25": '22app.top',
+    "26": '46app.top',
+    "27": '29app.top',
+    "28": '12app.top',
+    "29": '52app.top',
+    "30": '74app.top',
+    "31": '17app.top',
+    "32": '24app.top',
+    "33": '69app.top',
+    "34": '41app.top',
+    "35": '34app.top',
+    "36": '31app.top',
+    "37": '49app.top',
+    "38": '35app.top',
+    "39": '64app.top',
+    "40": '57app.top',
+    "41": '13app.top',
+    "42": '48app.top',
+    "43": '77app.top',
+    "44": '79app.top',
+    "45": '68app.top',
+    "46": '23app.top',
+    "47": '53app.top',
+    "48": '27app.top',
+    "49": '81app.top',
+    "50": '71app.top',
+    "0":  '37app.top',
 }
 
 var numFirst = 1
 
 function textWeb(numFirst) {
-    if (numFirst %5 === 1) {
+    if (numFirst %51 === 1) {
         return numWeb["1"]
-    } else if (numFirst %5 === 2) {
+    } else if (numFirst %51 === 2) {
         return numWeb["2"]
-    } else if (numFirst %5 === 3) {
+    } else if (numFirst %51 === 3) {
         return numWeb["3"]
-    } else if (numFirst %5 === 4) {
+    } else if (numFirst %51 === 4) {
         return numWeb["4"]
-    } else if (numFirst %5 === 0) {
+    } else if (numFirst %51 === 4) {
+        return numWeb["5"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["6"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["7"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["8"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["9"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["10"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["11"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["12"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["13"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["14"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["15"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["16"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["17"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["18"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["19"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["20"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["21"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["22"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["23"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["24"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["25"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["26"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["27"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["28"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["29"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["30"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["31"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["32"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["33"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["34"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["35"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["36"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["37"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["38"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["39"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["40"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["41"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["42"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["43"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["44"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["45"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["46"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["47"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["48"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["49"]
+    } else if (numFirst %51 === 4) {
+        return numWeb["50"]
+    } else if (numFirst %51 === 0) {
         return numWeb["0"]
     }
      console.log(textWeb(numFirst))
 }
 
 function textContent() {
-    let numAdd = Math.ceil(numFirst / 5) + 2000
+    let numAdd = Math.ceil(numFirst / 5) + 1001
     let Text = numAdd + '.' + textWeb(numFirst)
     console.log(numAdd)
     setText(0, Text)
