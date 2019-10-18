@@ -61,74 +61,64 @@ function findFromId (domId, t) {
     }
   }
   
-  function findFromTxt (domText, t) {
+function findFromTxt (domText, t) {
     let dom = text(domText).findOne(t)
     if (dom != null) {
-      return dom
+        return dom
     } else {
-      return false
+        return false
     }
-  }
+}
   
-  function findFromDesc (domText, t) {
+function findFromDesc (domText, t) {
     let dom = descContains(domText).findOne(t)
     if (dom != null) {
-      return dom
+        return dom
     } else {
-      return false
-    }
-  }
-  
-  function findAllFromId (domId, oneDomId) {
-    let eachDom = findFromId(oneDomId, 3000)
-    if (eachDom) {
-      let doms = id(domId).find()
-      // console.log('是否找到 ' + domId + ': ' + id(domId).exists())
-      if (id(domId).exists()) {
-        return doms
-      } else {
         return false
-      }
-    } else {
-      return false
     }
-  }
-  
-  function findFromClassName (cn, t) {
-    let dom = className(cn).findOne(t)
-    if (dom != null) {
-      return dom
-    } else {
-      return false
-    }
-  }
+}
   //============================
 
-  function clickPrivateData () {
+function clickPrivateData () {
     click(540, 300) // 点击修改背景图
     sleep(2000)
-  }
-
-  function changeImg() {
-      clickDomDesc('添加封面照片')
-      sleep(3000)
-      clickDomDesc('上传照片')
-      sleep(3000)
-      click(540, 395) //点击相册第一张照片
-      sleep(3000)
-      click(990, 150) //点击保存按钮
-      sleep(2000)
-  }
-
-  function changeAvatar(params) {
-      clickDommDesc('头像')
-      sleep(3000)
-      clickDomDesc('选择头像')
-      sleep(3000)
-      click(905, 395) //点击相册第二张照片
-      sleep(3000)
-      click(990, 150) //点击保存按钮
-      sleep(2000)
-  }
-
+    clickDomDesc('编辑个人主页')
+    sleep(2000)
+}
   
+function changeImg() {
+    let btnEdit = desc('编辑').find()
+    if (btnEdit) {
+        click(btnEdit[0].bounds().centerX(), btnEdit[0].bounds().centerY())
+    }
+    sleep(3000)
+    click(540, 395) //点击相册第一张照片
+    sleep(3000)
+    click(990, 150) //点击保存按钮
+    sleep(5000)
+    if (btnEdit) {
+        click(btnEdit[1].bounds().centerX(), btnEdit[1].bounds().centerY())
+    }
+    sleep(3000)
+    click(905, 395) //点击相册第二张照片
+    sleep(3000)
+    click(990, 150) //点击保存按钮
+    sleep(2000)
+    swipe(540, 1700, 540, 500, 500)
+}
+
+function local(params) {
+    
+}
+
+function addCity(params) {
+    let 
+    let btnAdd = desc('添加').find()
+    let cityList = [
+    'ابها ','أبوظبي','أرمناز', 'ازرع','ازويرات','ادلب','أكجوجت','الإسكندرية','الإسماعيلية','الأبيض','الأتارب','الأزرق','الأغواط','الأقصر',
+    'الباب','الباحة','البتراء','البديع','البريمي', 'البصرة','البغدادي','البليدة','البيرة','البيضاء','التاجي','التل','الثورة',
+    'الجبيل','الجديدة','الجزائر','الجش','الجفر','الجلفة','الجنينة','الجوف','الجوف','الجيزة','الحديدة','الحريق','الحسكة','الحسيمة','الحلة']
+    let cityText = cityList[Math.floor(Math.random*(cityList.length))] 
+}
+addCity()

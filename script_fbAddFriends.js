@@ -125,7 +125,6 @@ function twiceAdd(params) {
 }
 
 function main(params) {
-    home()
     sleep(10000)
     btnSearch()
     searchFirstName()
