@@ -108,17 +108,57 @@ function changeImg() {
     swipe(540, 1700, 540, 500, 500)
 }
 
-function local(params) {
-    
+function editUniversity(params) {
+    let universityList = ['الجامعة الأميركية في بيروت', 'جامعة الملك فهد للبترول والمعادن', 'جامعة الملك سعود', 'جامعة الملك عبد العزيز',
+    'جامعة الإمارات العربية المتحدة', 'الجامعة الأميركية بالقاهرة', 'جامعة قطر', 'الجامعة الأميركية في الشارقة', 
+    'الجامعة الأردنية', 'جامعة السلطان قابوس']
+    let universityText = universityList[Math.floor(Math.random()*(universityList.length))] 
+    clickDomText('大学名称（必填）')
+    console.log('点击')
+    sleep(5000)
+    setText(0, universityText)
+    sleep(2000)
+    click(1026, 1885)
+    sleep(1000)
+    click(606, 444)
+    sleep(2000)
+    clickDomText('保存')
+    sleep(5000)
+    clickDommDesc('关闭')
 }
 
-function addCity(params) {
-    let 
-    let btnAdd = desc('添加').find()
-    let cityList = [
-    'ابها ','أبوظبي','أرمناز', 'ازرع','ازويرات','ادلب','أكجوجت','الإسكندرية','الإسماعيلية','الأبيض','الأتارب','الأزرق','الأغواط','الأقصر',
+function editCity(params) {
+    let cityList = ['ابها ','أبوظبي','أرمناز', 'ازرع','ازويرات','ادلب','أكجوجت','الإسكندرية','الإسماعيلية','الأبيض','الأتارب','الأزرق','الأغواط','الأقصر',
     'الباب','الباحة','البتراء','البديع','البريمي', 'البصرة','البغدادي','البليدة','البيرة','البيضاء','التاجي','التل','الثورة',
     'الجبيل','الجديدة','الجزائر','الجش','الجفر','الجلفة','الجنينة','الجوف','الجوف','الجيزة','الحديدة','الحريق','الحسكة','الحسيمة','الحلة']
-    let cityText = cityList[Math.floor(Math.random*(cityList.length))] 
+    let cityText = cityList[Math.floor(Math.random()*(cityList.length))] 
+    click(540, 1419)
+    clickDomText('添加所在地（必填）')
+    console.log('点击')
+    sleep(5000)
+    setText(0, cityText)
+    sleep(2000)
+    click(1026, 1885)
+    sleep(1000)
+    click(606, 444)
+    sleep(2000)
+    clickDomText('保存')
+    sleep(5000)
+    clickDommDesc('关闭')
 }
-addCity()
+
+function main(params) {
+    let btnAdd = text('添加').find()
+    sleep(10000)
+    clickDomDesc('编辑个人主页')
+    sleep(3000)
+    swipe(540, 1700, 540, 500, 500)
+    sleep(1000)
+    if(btnAdd) {
+        click(btnAdd[1].bounds().centerX(), btnAdd[1].bounds().centerY())
+    }
+    editUniversity()
+    sleep(5000)
+    // editCity()
+}
+main()

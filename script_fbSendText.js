@@ -53,7 +53,6 @@ function clickFriendList() {
 }
 
 function btnText() {
-    clickRefuse()
     clickDommText('发消息')
     console.log('点击发消息')
     sleep(2000)
@@ -272,7 +271,7 @@ function startVpn(params) {
         home()
     }
 }
-startVpn()
+// startVpn()
 
 const numWeb = {
     "1":  '6868app.com',
@@ -339,97 +338,97 @@ function textWeb(numFirst) {
         return numWeb["3"]
     } else if (numFirst %51 === 4) {
         return numWeb["4"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 5) {
         return numWeb["5"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 6) {
         return numWeb["6"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 7) {
         return numWeb["7"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 8) {
         return numWeb["8"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 9) {
         return numWeb["9"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 10) {
         return numWeb["10"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 11) {
         return numWeb["11"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 12) {
         return numWeb["12"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 13) {
         return numWeb["13"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 14) {
         return numWeb["14"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 15) {
         return numWeb["15"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 16) {
         return numWeb["16"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 17) {
         return numWeb["17"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 18) {
         return numWeb["18"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 19) {
         return numWeb["19"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 20) {
         return numWeb["20"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 21) {
         return numWeb["21"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 22) {
         return numWeb["22"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 23) {
         return numWeb["23"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 24) {
         return numWeb["24"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 25) {
         return numWeb["25"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 26) {
         return numWeb["26"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 27) {
         return numWeb["27"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 28) {
         return numWeb["28"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 29) {
         return numWeb["29"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 30) {
         return numWeb["30"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 31) {
         return numWeb["31"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 32) {
         return numWeb["32"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 33) {
         return numWeb["33"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 34) {
         return numWeb["34"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 35) {
         return numWeb["35"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 36) {
         return numWeb["36"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 37) {
         return numWeb["37"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 38) {
         return numWeb["38"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 39) {
         return numWeb["39"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 40) {
         return numWeb["40"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 41) {
         return numWeb["41"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 42) {
         return numWeb["42"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 43) {
         return numWeb["43"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 44) {
         return numWeb["44"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 45) {
         return numWeb["45"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 46) {
         return numWeb["46"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 47) {
         return numWeb["47"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 48) {
         return numWeb["48"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 49) {
         return numWeb["49"]
-    } else if (numFirst %51 === 4) {
+    } else if (numFirst %51 === 50) {
         return numWeb["50"]
     } else if (numFirst %51 === 0) {
         return numWeb["0"]
@@ -438,7 +437,7 @@ function textWeb(numFirst) {
 }
 
 function textContent() {
-    let numAdd = Math.ceil(numFirst / 5) + 1001
+    let numAdd = Math.ceil(numFirst / 51) + 1001
     let Text = numAdd + '.' + textWeb(numFirst)
     console.log(numAdd)
     setText(0, Text)
@@ -497,7 +496,8 @@ function nameText() {
         writeList(userText)
         btnText()
         sleep(2000)
-        judgeBlock()
+        TextSend()
+        sleep(2000)
     } else {
         btnPageBack()
     }
@@ -518,7 +518,7 @@ function TextSend(params) {
     textContent()
     btnSend()
     btnRoomBack()
-    sleep(180000)
+    sleep(5000)
 }
 
 function totalPley(params) {
@@ -530,5 +530,4 @@ function totalPley(params) {
     setFbMessage()
 }
 
-// totalPley()
-// startVpn()
+totalPley()
