@@ -73,8 +73,8 @@ function startVpn(params) {
     }
 }
 
-var userList = [ '79068315105', '79619041214', '79619167647', '79671292873', '79214071867','m2546783852@gomen-da.com', 'm2546782899@gomen-da.com', 'm3060890275@gomen-da.com', 79218478561, 79039637207, 79258574853, 79259219019, 79258442195, 79652893487, 79200379586, 79037624157, 79652310749]
-var passList = [ 'BktLI4cyN2', '9yQNfFtjXd', '4c6f0CvTPi', '14mm6z9FJN', '12ZxVdCS2n', 'Y029SJgGmk','ReBJRqqlQy', '2Y8DKDzRof', '9r8gJUf9En','Zttkc5PXfs','12ZxVdCS2n','KzLHQ1Ei','DPS59KUv', '17Sv0Oo3', 'ZixLdhwzPB', 'Su7gFZgpQz', 'BASDxUimr5', 'iTUmcw5qjq', 'aRAtRo9Yvf', '51eI4NDA6W', 'jmeUAruKGW', 'rNkzknVntR','KY1Z1W7C7S']
+var userList = [ '79068315105']
+var passList = ['FuR8cAQni9', 's1KDB4VFau']
 
 function fbLogin(params) {
     launchApp('com.facebook.katana')
