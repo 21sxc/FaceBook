@@ -4,20 +4,18 @@ var Common = require(UtilsPath)
 function clickDomText(param) {
     let dom = text(param).findOne(30000)
     click(dom.bounds().centerX(), dom.bounds().centerY())
-    sleep(2000)
 }
 
 function clickDomid(param) {
     let dom = id(param).findOne(30000)
     click(dom.bounds().centerX(), dom.bounds().centerY())
-    sleep(2000)
 }
 
 function clickDommText(param) {
     let dom = text(param).findOne(30000)
     if (dom) {
         dom.click()
-        sleep(2000)
+
     }
 }
 
@@ -25,7 +23,7 @@ function clickDommid(param) {
     let dom = id(param).findOne(30000)
     if (dom) {
         dom.click()
-        sleep(2000)
+
     }
 }
 
@@ -33,14 +31,13 @@ function clickDomDesc(param) {
     let dom = desc(param).findOne(30000)
     if (dom) {
         dom.click()
-        sleep(2000)
+
     }
 }
 
 function clickFriendLabel() {
     click(540, 1836)
     console.log('点击好友底部栏')
-    sleep(3000)
 }
 
 function clickFriendAlbum() {
@@ -49,51 +46,43 @@ function clickFriendAlbum() {
 
 function clickremarks1() {
     clickDomDesc('联系方式')       // 点击查看详情
-    sleep(2000)
 }
 
 function clickremarks2() {
     clickDomDesc('查看详情')      // 点击查看详情
-    sleep(2000)
 }
 
 
 function btnText() {
     clickDommText('发消息')     // 点击发消息
-    sleep(2000)
 }
 
 function clickBlankContent() {
     clickDommText('Aa')     // 点击发送框
-    sleep(2000)
 }
 
 
 function btnSend() {
     clickDomDesc('Send')      // 点击发送按钮
-    sleep(3000)
 }
 
 function btnRoomBack() {
     clickDomDesc('返回')     // 点击返回按钮
-    sleep(2000)
 }
 
 function btnPageBack(_params) {
     clickDomDesc('关闭内容信息')       // 点击关闭内容信息
-    sleep(2000)
 }
 
 function clickMessageUnblock(_params) {
     clickDomDesc('Messenger,未加锁')
-    sleep(2000)
 }
 
 function clickRefuse(_params) {
     let btnRefuse = text('拒绝').findOne(3000)
     if (btnRefuse) {
         btnRefuse.click()
-        sleep(2000)
+
     } else {
         return
     }
@@ -114,7 +103,7 @@ function clickRefuse(_params) {
 //     console.log(greetingIndex)
 //     console.log(greeting)
 //     console.log(greetingText.length-1)
-//     sleep(3000)
+//   
 // }
 function getWebsites(callback) {
     http.get("http://121.199.13.44:7002/api/domain/getValidDoamin?limit=1", {
@@ -163,7 +152,7 @@ function textContent() {
             console.log(idx)
             setText(0, myText)
             log(myText)
-            sleep(2000)
+    
         } else {
             log('没有域名数据!')
         }
@@ -184,38 +173,42 @@ function readList () {
 
 function writeList (text) {
     let _writeDittoFiles = open(NameFbList, 'a')
-    console.log(NameFbList)
     _writeDittoFiles.writeline(text)             // console.log('打开已发送txt，并写入新id')
     _writeDittoFiles.flush()
     _writeDittoFiles.close()
 }
 
 function setFbMessage() {
+    let btnDetails = desc('查看详情').findOne(3000)
+    let btnConnect = desc('联系方式').findOne(3000)
     const allDetails = desc('查看详情').find()
     const allConnect = desc('联系方式').find()
-    if (allDetails) {
-        allDetails.length && allDetails.forEach((item, _index) => {
-            const y = item.bounds().centerY()
+    clickRefuse()
+    if (btnDetails) {
+        allDetails.length && allDetails.forEach((item1) => {
+            const y = item1.bounds().centerY()
             if (y > 240 && y < 1790) {
-                click(item.bounds().centerX(), item.bounds().centerY())
+                clickRefuse()
+                click(item1.bounds().centerX(), item1.bounds().centerY())
                 readList()
-                sleep(5000)
+                clickRefuse()
                 nameText()
             }
         }) 
-    } else if (allConnect) {
-        allConnect.length && allConnect.forEach((item, _index) => {
-            const y = item.bounds().centerY()
+    } else if (btnConnect) {
+        allConnect.length && allConnect.forEach((item2) => {
+            const y = item2.bounds().centerY()
             if (y > 240 && y < 1790) {
-                click(item.bounds().centerX(), item.bounds().centerY())
+                clickRefuse()
+                click(item2.bounds().centerX(), item2.bounds().centerY())
                 readList()
-                sleep(5000)
+                clickRefuse()
                 nameText()
             }
         }) 
     }
-    swipe(540, 1730, 540, 60, 2000)
-    sleep(2000)
+    clickRefuse()
+    swipe(540, 1730, 540, 60, 1000)
     setFbMessage()
 }
 
@@ -226,11 +219,12 @@ function nameText() {
     if (NameList.indexOf(userText) == -1 ) {
         userText.concat(NameList)
         writeList(userText)
+        clickRefuse()
         btnText()
-        sleep(5000)
+        clickRefuse()
         judgeBlock()
-        sleep(2000)
     } else {
+        clickRefuse()
         btnPageBack()
     }
 }
@@ -239,28 +233,33 @@ function webBlocked(params) {
     let textFail = text('发送失败').findOne(3000)
     let textSure = text('确定').findOne(3000)
     if (textFail) {
+        clickRefuse()
         textSure.click()
-        sleep(2000)
     }
 }
 
 function judgeBlock(params) {
-    sleep(2000)
     let AaContent = text('Aa').findOne(3000)
     if (AaContent) {
         TextSend()
     } else {
+        clickRefuse()
         btnRoomBack()
     }
 }
 
 function TextSend(params) {
+    clickRefuse()
     clickBlankContent()
+    clickRefuse()
     textContent()
+    clickRefuse()
     btnSend()
+    clickRefuse()
     webBlocked()
+    clickRefuse()
     btnRoomBack()
-    sleep(5000)
+    clickRefuse()
 }
 
 function totalPley(params) {
