@@ -143,7 +143,7 @@ function getRandomStr(len) {
 }
 
 function getSendText(website) {
-    const text = 'عزيزي : الرجاء فتح صفحتي على Facebook ثم شاهد المنشور الذي أرسلتة ，أنا ايضاً لازلت  في سن الشباب' + '.'
+    const text = 'عزيزي : ماذا تنتظر قم بالتنزيل مباشرة ؟' + '.'
     return text + getRandomStr(4) + '.' + website
 }
 
