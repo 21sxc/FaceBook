@@ -83,7 +83,7 @@ function btnAcceptFriend(params) {
     } else {
         return false
     }
-    swipe(540, 300, 540, 1800, 1000)
+    swipe(540, 450, 540, 1800, 1000)
     sleep(3000)
 }
 

@@ -50,31 +50,43 @@ function clickDomDesc(param) {
     }
 }
 
-function startVpn(params) {
-    launchApp('com.jrzheng.supervpnfree')
-    click(284, 1794)
-    console.log('点击广告不用了')
-    clickDommText('CONTINUE')
-    console.log('vpn点击继续')
-    clickDommText('CONNECT')
-    console.log('vpn点击连接')
-    click(284, 1794)
-    console.log('点击广告不用了')
-    let errText = text('Connection error,please retry').findOne(3000)
-    if (errText) {
-        clickDommText('CONNECT')
-        console.log('vpn点击连接')
-        click(284, 1794)
-        console.log('点击广告不用了')
-    }
-    let corrText = text('Connected').findOne(3000)
-    if (corrText) {
-        home()
-    }
+function getUserNames(callback) {
+    http.get("http://121.199.13.44:7002/api/facebook/getUsernames?limit=1", {
+        headers: {
+            'Accept-Language': 'zh-cn,zh;q=0.5',
+            'User-Agent': 'Mozilla/5.0(Macintosh;IntelMacOSX10_7_0)AppleWebKit/535.11(KHTML,likeGecko)Chrome/17.0.963.56Safari/535.11'
+        }
+    }, function(res, err) {
+        if(err) {
+            callback(err)
+            return
+        }
+        const bodyRes = res.body.string()
+        log("body = " + bodyRes)
+        const myRes = JSON.parse(bodyRes)
+        callback(null, myRes.data)
+    })
+}
+
+function textAccount() {
+    getUserNames(function(err, item) {
+        if (err) {
+            log('请求失败了：' + err.message)
+            return
+        }
+        if (item.length > 0) {
+            let userName = item
+            setText(0, )
+            log()
+    
+        } else {
+            log('没有域名数据!')
+        }
+    })
 }
 
 var userList = [ '79068315105']
-var passList = ['FuR8cAQni9', 's1KDB4VFau']
+var passList = ['CUzm4PLiEJ', 'FuR8cAQni9', 's1KDB4VFau']
 
 function fbLogin(params) {
     launchApp('com.facebook.katana')
