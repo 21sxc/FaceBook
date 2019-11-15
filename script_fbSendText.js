@@ -2,31 +2,31 @@ var UtilsPath = files.path('/sdcard/xxsq/gz/utils.js')
 var Common = require(UtilsPath)
 
 function clickDomText(param) {
-    let dom = text(param).findOne(30000)
+    let dom = text(param).findOne(3000)
     click(dom.bounds().centerX(), dom.bounds().centerY())
 }
 
 function clickDomid(param) {
-    let dom = id(param).findOne(30000)
+    let dom = id(param).findOne(3000)
     click(dom.bounds().centerX(), dom.bounds().centerY())
 }
 
 function clickDommText(param) {
-    let dom = text(param).findOne(30000)
+    let dom = text(param).findOne(3000)
     if (dom) {
         dom.click()
     }
 }
 
 function clickDommid(param) {
-    let dom = id(param).findOne(30000)
+    let dom = id(param).findOne(3000)
     if (dom) {
         dom.click()
     }
 }
 
 function clickDomDesc(param) {
-    let dom = desc(param).findOne(30000)
+    let dom = desc(param).findOne(3000)
     if (dom) {
         dom.click()
     }
@@ -61,6 +61,14 @@ function clickBlankContent() {
 
 function btnSend() {
     clickDomDesc('Send')      // 点击发送按钮
+}
+
+function photo(params) {
+    clickDomDesc('Choose photo')
+}
+
+function photoSend(params) {
+    clickDomDesc('发送')
 }
 
 function btnRoomBack() {
@@ -119,6 +127,65 @@ function clickRefuse(_params) {
 //     return Math.floor(Math.random() * len)
 // }
 
+function helloText(params) {
+    let text = [
+        'السلام عليكم',
+        'هلا وغلا',
+        'هلا بقلبي',
+        'مرحباً',
+        'كيف الحال',
+        'شو اخبارك',
+        'وينك',
+        'وش مسوي الحين',
+    ]
+    let index = Math.floor((Math.random()*text.length))
+    let hello = text[index]
+    setText(0, hello)
+}
+
+function talkText(params) {
+    let text = [
+        'انا الحين اشعربالملل لكن بصراحة في تطبيق اثار اهتمامي وتعرفت على اصدقاء من كل الدول العربية اذا بدك تدردش نزل تطبيق اسمة',
+        'انا الحين اشعربالملل لكن بصراحة في تطبيق اثار اهتمامي وتعرفت على اصدقاء من كل الدول  اذا بدك تقضي على الملل نزل تطبيق اسمة',
+        ' انا قاعد ما عندي شغلة لكن  العب بتطبيق الجديد مررررة حلو اسمة',
+        'ممكن تنزلة من المتجر مباشرة ابل استور  او جوجل بلي كمان موجود',
+        'قاعد العب بالتطبيق الجديد الي اسمة',
+        'ممكن تنزلة من المتجر مباشرة ابل استور  او جوجل بلي كمان موجود',
+        'في العاب وتسلية بالتطبيق الجديد الي لسا نزل على المتجر اسمة',
+        'تطبيق جديد نزل على المنتجر لو بدك ندردش نزلو من المتجر',
+        'الحين ماعندي شغلة الا العب بالتطبيق الي نزل على المتجر مرررة استخدامة مريح',
+        'ماعندي شغلة وانت وش مساوي تعرفت على التطبيق الجديد الي بالمتجر والا لا  اسمة',
+        'في تطبيق جديد نزل على المتجر اذا بدك تنزلة ونضيف بعض اسمة',
+        'في تطبيق جديد نزل على المتجر اذا بدك تستمتع نزلة  اسمة',
+        'ملل وصداع لكن معانا تطبيق جديد نزل قاعدين فية نستمتع مع البنات والاولاد اسمة',
+        'وانت وش مسوي نزلت التطبيق الجديد والا لسا في تطبيق احنا والبنات فية نزلة اسمة',
+        'انا الحين مو فاضي قاعد بالتطبيق الجديد الي اسمة',
+        'في تطبيق جديد نزل في رومات والعاب وواشياء كثير مرة ممتعة ممكن تنزلة من المتجر اسمة',
+        'نزلت تطبيق جديد من المتجز جدا روعة افضل من تطبيق يلا شباب اسمة',
+        'سمعت بالتطبيق الجديد الي نزل على المتجر والا لا مرة روووعة الكل نزلة الان ومستمتعين اسمة',
+        'الصدق انة في معانا والشلة تطبيق جديد عاة جديد ممكن تنزلة اسمة',
+        'الحين ما عندنا شغلة الا نستمتع بالتطبيق الجديد الي نزل على المتجر اسمة',
+        'كل شباب الخليج يطنخوا بالتطبيق الجديداسمة',
+        'في تطبيق جديد نزل الحين كل الشباب والبنات نزلوة  اسمة',
+        'كنت نوم ورحت فتحت  التطبيق الجديد اسمة',
+        'ما اعرف وش اسوي الا افتح تطبيق جديد وادردش مع العيال والبنات في الخليج اسم التطبيق',
+        'في تطبيق جديد نطنخ فية اسمة',
+        'الان الصدق انو في ملل لكن في تطبيق جديد نزل على المتجر نلعب ونستمتع فية اسمة',
+        'معانا الحين تطبيق افضل من يلا بالف مرة اسمة',
+        'في تطبيق الان اكتسح السوق اسمة',
+        'في تطبيق الان اكتسح السوق العربية  اسمة',
+        'في  جديد الان اكتسح السوق بالخليج اسمة',
+        'الان الشاباب والبنات في الخليج كلهم بستخدموا تطبيق جديد اسمة',
+        'نزلت تطبيق  في تطبيقات جديدة لشركة خليجية اسمة',
+        'انا الان ادردش في التطبيق الجديد الي اسمة',
+        'درشة العاب واغاني ورومات ومسابقات في التطبيق الجديد الي  اسمة',
+        'في تطبيق نزل بقطر اسمة',
+    ]
+    let index = Math.floor((Math.random()*text.length))
+    let talk = text[index]
+    setText(0, talk)
+}
+
 function textContent() {
     // getWebsites(function(err, websites) {
     //     if (err) {
@@ -136,39 +203,37 @@ function textContent() {
     //         log('没有域名数据!')
     //     }
     // })
-    let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '8617767192920+ ';
-    setText(0, newText)
+    // let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '8617767192920+ ';
+    // setText(0, newText)
+    // sleep(2000)
+    // btnSend()
+    // sleep(2000)
+    helloText()
     sleep(2000)
+    btnSend()
+    sleep(2000)
+    talkText()
+    sleep(2000)
+    btnSend()
+    sleep(2000)
+    setText(0, 'Voimigo')
+    sleep(2000)
+    btnSend()
+    sleep(2000)
+    setText(0, 'ممكن تنزلة من المتجر مباشرة ابل استور  او جوجل بلي كمان موجود')
+    sleep(2000)
+    btnSend()
+    sleep(2000)
+    pushPhoto()
 }
 
 let NameList = []
-let NameFbList = '/sdcard/FbNameText.txt'
+let NameFbList = '/sdcard/FbNewNameText.txt'
 if (!files.exists(NameFbList)) {
     files.createWithDirs(NameFbList)
 }
 
-let numList = []
-let numFbList = '/sdcard/FbNumList.txt'
-if (!files.exists(numFbList)) {
-    files.createWithDirs(numFbList)
-}
-function createNumFiles(params) {
-    var firstNum = "0";
-    files.write(numFbList, firstNum)
-}
-createNumFiles()
-
-let swipeNumList = []
 let swipeNumFbList = '/sdcard/FbSwipeNumList.txt'
-if (!files.exists(swipeNumFbList)) {
-    files.createWithDirs(swipeNumFbList)
-}
-
-function createSwipeFiles(params) {
-    var firstSwipeNum = "0";
-    files.write(swipeNumFbList, firstSwipeNum)
-}
-createSwipeFiles()
 
 function readList() {
     let _doneNameFbList = open(NameFbList, 'r')  // 打开并读取已发送txt
@@ -178,35 +243,38 @@ function readList() {
 
 function writeList(text) {
     let _writeDittoFiles = open(NameFbList, 'a')
-    _writeDittoFiles.writeline(text)             // console.log('打开已发送txt，并写入新id')
+    _writeDittoFiles.writeline(text)             
     _writeDittoFiles.flush()
     _writeDittoFiles.close()
 }
 
-function readNumList() {
-    let _donenumFbList = open(numFbList, 'r')  // 打开并读取已发送txt
-    numList = _donenumFbList.readlines()       // console.log(numList)
-    _donenumFbList.close()                      // console.log('关闭文件夹')
-}
-
-function writeNumList(text) {
-    let _wirteNumDittoFiles = open(numFbList, 'a')
-    _wirteNumDittoFiles.writeline(text)             // console.log('打开已发送txt，并写入新id')
-    _wirteNumDittoFiles.flush()
-    _wirteNumDittoFiles.close()
-}
-
 function readSwipeNumList() {
     let _doneSwipeNumList = open(swipeNumFbList, 'r')  // 打开并读取已发送txt
-    numList = _doneSwipeNumList.readlines()       // console.log(numList)
+    swipeNumList = _doneSwipeNumList.readlines() 
+    console.log(swipeNumList)      
     _doneSwipeNumList.close()                      // console.log('关闭文件夹')
 }
 
-function writeSwipeList(text) {
-    let _wirteSwipeNumDittoFiles = open(swipeNumFbList, 'a')
-    _wirteSwipeNumDittoFiles.writeline(text)            // console.log('打开已发送txt，并写入新id')
+function writeSwipeList(num) {
+    let _wirteSwipeNumDittoFiles = open(swipeNumFbList, 'w')
+    _wirteSwipeNumDittoFiles.writeline(num)            // console.log('打开已发送txt，并写入新id')
     _wirteSwipeNumDittoFiles.flush()
     _wirteSwipeNumDittoFiles.close()
+}
+
+readSwipeNumList()
+let swipeNum = swipeNumList[0]
+function localPostion(params) {
+    console.log(swipeNum)
+    for (let i = 0; i < swipeNum; i++) {
+        if (swipeNum == 0) {
+            return;
+        } else {
+            swipe(540, 1730, 540, 60, 1000)
+            sleep(1000)
+        }
+    }
+    sleep(1000)
 }
 
 function setFbMessage() {
@@ -214,14 +282,6 @@ function setFbMessage() {
     let btnConnect = desc('联系方式').findOne(3000)
     let allDetails = desc('查看详情').find()
     let allConnect = desc('联系方式').find()
-    for (let i = 0; i < swipeNum; i++) {
-        if (swipeNum == 0) {
-            return;
-        } else {
-            swipe(540, 1730, 540, 60, 1000)
-        }
-    }
-    sleep(1000)
     clickRefuse()
     if (btnDetails) {
         allDetails.length && allDetails.forEach((item1) => {
@@ -230,13 +290,8 @@ function setFbMessage() {
                 clickRefuse()
                 click(item1.bounds().centerX(), item1.bounds().centerY())
                 readList()
-                readNumList()
-                let startNum = numList[numList.length - 1];
                 clickRefuse()
                 nameText()
-                startNum ++;
-                startNum.concat(numList)
-                writeNumList(startNum)
             }
         })
     } else if (btnConnect) {
@@ -253,10 +308,7 @@ function setFbMessage() {
     }
     clickRefuse()
     swipe(540, 1730, 540, 60, 1000)
-    readSwipeNumList()
-    let swipeNum = swipeNumList[swipeNumList.length - 1];
-    swipeNum++;
-    swipeNum.concat(swipeNumList)
+    swipeNum++
     writeSwipeList(swipeNum)
     setFbMessage()
 }
@@ -275,7 +327,7 @@ function nameText() {
     } else {
         clickRefuse()
         btnPageBack()
-    }
+    }                
 }
 
 function webBlocked(params) {
@@ -297,18 +349,26 @@ function judgeBlock(params) {
     }
 }
 
+function pushPhoto(params) {
+    photo()
+    sleep(1000)
+    click(179, 1357)
+    sleep(1000)
+    photoSend()
+    sleep(2000)
+}
+
 function TextSend(params) {
     clickRefuse()
     clickBlankContent()
     clickRefuse()
     textContent()
     clickRefuse()
-    btnSend()
-    clickRefuse()
     webBlocked()
     clickRefuse()
     btnRoomBack()
     clickRefuse()
+    btnRoomBack()
 }
 
 function totalPley(params) {
@@ -317,6 +377,7 @@ function totalPley(params) {
     sleep(1000)
     clickMessageUnblock()
     sleep(1000)
+    localPostion()
     setFbMessage()
 }
 

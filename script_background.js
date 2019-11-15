@@ -80,6 +80,18 @@ function findFromDesc (domText, t) {
 }
   //============================
 
+function clickItemPage(params) {
+    click(990, 282)
+}
+
+function checkItemPage(params) {
+    clickDomDesc('查看个人主页')
+}
+
+function editItemPage(params) {
+    clickDomDesc('编辑个人主页')
+}
+
 function clickPrivateData () {
     click(540, 300) // 点击修改背景图
     sleep(2000)

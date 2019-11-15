@@ -54,6 +54,24 @@ function clickFacebookUnblock(params) {
     clickDommDesc('Facebook,未加锁')
 }
 
+function extraBox(params) {
+    let fullText = text('这位用户的好友数量已达到上限5000人，无法添加更多好友。').findOne(3000)
+    let alreadyText = text('你和这位用户已成为好友。').findOne(3000)
+    let alreadyText2 = text('已经是朋友了').findOne(3000)
+    let fullText2 = text('无法加为好友').findOne(3000)
+    if (fullText2.exists()) {
+        clickDommText('确认')
+        sleep(1000)
+    } else if (alreadyText2.exists()) {
+        clickDommText('确认')
+        sleep(1000)
+    } else {
+        return
+    }
+}
+
+
+
 function btnConfirm(params) {
     let confirmList = desc('确认').find()
     if (text('确认').exists()) {
@@ -63,12 +81,14 @@ function btnConfirm(params) {
         if (y > 216 && y < 1800) {
             btnSure.parent().click()
             sleep(1000)
+            extraBox()
         }
     } else {
         btnAcceptFriend()
     }
     swipe(540, 300, 540, 1800, 1000)
     sleep(3000)
+    btnConfirm()
 }
 
 function btnAcceptFriend(params) {
@@ -79,6 +99,7 @@ function btnAcceptFriend(params) {
         if (y > 216 && y < 1800) {
             btnAdded.parent().click()
             sleep(1000)
+            extraBox()
         }
     } else {
         return false
@@ -87,20 +108,13 @@ function btnAcceptFriend(params) {
     sleep(3000)
 }
 
-function cyclePlay(params) {
-    for (let i = 0; i < 10; i++) {
-        btnConfirm()
-        console.log(i)
-    }
-}
-
 function main(params) {
     home()
     recents()
     sleep(1000)
     clickFacebookUnblock()
     sleep(1000)
-    cyclePlay()
+    btnConfirm()
 }
 
 main()
