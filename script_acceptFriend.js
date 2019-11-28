@@ -55,14 +55,10 @@ function clickFacebookUnblock(params) {
 }
 
 function extraBox(params) {
-    let fullText = text('这位用户的好友数量已达到上限5000人，无法添加更多好友。').findOne(3000)
-    let alreadyText = text('你和这位用户已成为好友。').findOne(3000)
-    let alreadyText2 = text('已经是朋友了').findOne(3000)
-    let fullText2 = text('无法加为好友').findOne(3000)
-    if (fullText2.exists()) {
+    if (text('无法加为好友').exists()) {
         clickDommText('确认')
         sleep(1000)
-    } else if (alreadyText2.exists()) {
+    } else if (text('已经是朋友了').exists()) {
         clickDommText('确认')
         sleep(1000)
     } else {
@@ -70,7 +66,14 @@ function extraBox(params) {
     }
 }
 
-
+function clickRefuse(_params) {
+    let btnRefuse = text('拒绝').findOne(3000)
+    if (btnRefuse) {
+        btnRefuse.click()
+    } else {
+        return
+    }
+}
 
 function btnConfirm(params) {
     let confirmList = desc('确认').find()
@@ -118,3 +121,13 @@ function main(params) {
 }
 
 main()
+
+threads.start(function(){
+    //在新线程执行的代码
+    while(true){
+        clickRefuse()
+    }
+});
+while(true){
+    main()
+}

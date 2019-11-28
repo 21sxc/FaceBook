@@ -50,6 +50,10 @@ function clickDomDesc(param) {
     }
 }
 
+function clickFacebookUnblock(params) {
+    clickDommDesc('Facebook,未加锁')
+}
+
 function btnSearch(params) {
     clickDommDesc('搜索 Facebook')
     sleep(1000)
@@ -78,8 +82,11 @@ function searchFirstName(params) {
 'امين', 'امير', 'امجد', 'امير', 'عمار', 'عمرو', 'انس', 'عاطف', 'عوض', 'ايوب', 'ايمن', 'اوس', 'الازهر', 'عزام', 'أبو بكر الشاطري',
 'بهاء', 'باششار', 'بسام', 'باسم', 'بشر', 'برهان', 'داود', 'فادي', 'فاضل', 'قوهات', 'فيصل', 'فخر', 'فخري',
 'فريد', 'فارس', 'فاروق','فواز', 'فراس', 'غالب', 'غسان', 'غازي']
-    let index = Math.floor(Math.random()*(searchName.length))
-    let nameIndex = searchName[index]
+    let serachName_ = ['Mohammed', 'Omar', 'Yousuf', 'Khalid', 'Fares', 'Yasseen', 'Adam', 'Abdulrahman', 'Abdullah', 'Ahmad',
+'Nawaf', 'Najib', 'Abu Bakr', 'Adnan', 'jamal', 'kamal', 'Osamah', 'qusay', 'saeed', 'sadi', 'Raid', 'Mekram', 'Thabit', 'Hamzah',
+'Sami', 'Sameer', 'Mustafa', 'Haitham', 'Basheer', 'bashar', 'Alla', 'Fahd', 'Sultan']
+    let index = Math.floor(Math.random()*(serachName_.length))
+    let nameIndex = serachName_[index]
         setText(0, nameIndex)
         console.log(nameIndex)
         sleep(2000)
@@ -115,23 +122,53 @@ function addFriends(params) {
         }
     })
     swipe(540, 1700, 540, 300, 1000)
-    swipe(540, 1700, 540, 300, 1000)
 }
 
-function twiceAdd(params) {
-    for (let j = 0; j < 2; j++) {
+function tripleAdd(params) {
+    for (let j = 0; j < 3; j++) {
         addFriends()        
     }
 }
 
+function randomSwipe(params) {
+    let num = [1, 2, 3, 4, 5, 6]
+    let index = Math.floor(Math.random()*(num.length))
+    let numIndex = num[index]
+    for (let index = 1; index < numIndex; index++) {
+        swipe(540, 1700, 540, 300, 1000)
+        sleep(1500)
+    }
+}
+
 function main(params) {
+    home()
+    sleep(1000)
+    recents()
+    sleep(1000)
+    clickMessageUnblock()
     sleep(10000)
     btnSearch()
     searchFirstName()
-    twiceAdd()
+    tripleAdd()
 }
 
-main()
+// main()
 
+function clickRefuse(_params) {
+    let btnRefuse = text('拒绝').findOne(3000)
+    if (btnRefuse) {
+        btnRefuse.click()
+    } else {
+        return
+    }
+}
 
-
+threads.start(function(){
+    //在新线程执行的代码
+    while(true){
+        clickRefuse()
+    }
+});
+while(true){
+    main()
+}

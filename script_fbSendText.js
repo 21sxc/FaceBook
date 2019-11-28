@@ -203,29 +203,42 @@ function textContent() {
     //         log('没有域名数据!')
     //     }
     // })
-    // let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '8617767192920+ ';
-    // setText(0, newText)
-    // sleep(2000)
+    let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '86 18582312714+ ';
+    setText(0, newText)
+    sleep(2000)
+    btnSend()
+    sleep(2000)
+    // helloText()
+    // sleep(1500)
     // btnSend()
-    // sleep(2000)
-    helloText()
-    sleep(1500)
-    btnSend()
-    sleep(1500)
-    talkText()
-    sleep(1500)
-    btnSend()
-    sleep(1500)
-    setText(0, 'Voimigo')
-    sleep(1500)
-    btnSend()
-    sleep(1500)
-    setText(0, 'ممكن تنزلة من المتجر مباشرة ابل استور  او جوجل بلي كمان موجود')
-    sleep(1500)
-    btnSend()
-    sleep(1500)
-    pushPhoto()
-    sleep(1500)
+    // sleep(1500)
+    // talkText()
+    // sleep(1500)
+    // btnSend()
+    // sleep(1500)
+    // setText(0, 'Voimigo')
+    // sleep(1500)
+    // btnSend()
+    // sleep(1500)
+    // setText(0, 'ممكن تنزلة من المتجر مباشرة ابل استور  او جوجل بلي كمان موجود')
+    // sleep(1500)
+    // btnSend()
+    // sleep(1500)
+    // pushPhoto()
+    // sleep(1500)
+    // btnSend()
+}
+
+function createFile(params) {
+    let swipeNumFbList = '/sdcard/FbSwipeNumList.txt'
+    if (!files.exists(swipeNumFbList)) {
+        files.createWithDirs(swipeNumFbList)
+        sleep(1000)
+        var text = "0";
+        files.write(swipeNumFbList, text);
+    } else {
+        return
+    }
 }
 
 let NameList = []
@@ -368,18 +381,41 @@ function TextSend(params) {
     webBlocked()
     clickRefuse()
     btnRoomBack()
-    clickRefuse()
-    btnRoomBack()
+    // clickRefuse()
+    // btnRoomBack()
 }
 
 function totalPley(params) {
     home()
-    recents()
     sleep(1000)
-    clickMessageUnblock()
+    createFile()
+    sleep(1000)
+    // recents()
+    // sleep(1000)
+    // clickMessageUnblock()
+    intoList()
     sleep(1000)
     localPostion()
     setFbMessage()
 }
 
-totalPley()
+// totalPley()
+
+function intoList(params) {
+    launchApp('Message')
+    sleep(5000)
+    clickFriendLabel()
+    sleep(2000)
+    clickFriendAlbum()
+    sleep(1000)
+}
+
+threads.start(function(){
+    //在新线程执行的代码
+    while(true){
+        clickRefuse()
+    }
+});
+while(true){
+    totalPley()
+}

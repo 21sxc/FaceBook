@@ -67,6 +67,7 @@ function getUserNames(callback) {
         callback(null, myRes.data)
     })
 }
+getUserNames()
 
 function textAccount() {
     getUserNames(function(err, item) {
@@ -75,13 +76,10 @@ function textAccount() {
             return
         }
         if (item.length > 0) {
-            let userName = item
-            setText(0, )
-            log()
-    
+
         } else {
-            log('没有域名数据!')
-        }
+            log('没有账号了!')
+        }   
     })
 }
 
@@ -210,4 +208,4 @@ function changeNickName(params) {
     saveCommit()
 }
 
-changeNickName()
+// changeNickName()

@@ -1,13 +1,17 @@
-var Calculator = require('little-calculator')
-const calculator = new Calculator(true)
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Upload images to server using Node JS</title>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/jquery.form.min.js"></script>
 
-const exp = '( 3 + 13) / 2 + 5 - 3 * 2'
-calculator.compute(exp) // 返回7
+</head>
+<body>
+    <form id="frmUploader" enctype="multipart/form-data" action="api/Upload/" method="post">
+        <input type="file" name="imgUploader" multiple />
+        <input type="submit" name="submit" id="btnSubmit" value="Upload" />
+    </form>
+</body>
 
-const exp1 = '3 + -2 * 2 + 2^2 + abs(-2)'
-calculator.compute(exp1) // 返回5
+</html>
 
-const exp2 = '-1 + 5*5 - 3 + sqrt(4)'
-calculator.compute(exp2) // 返回5
-let result = calculator.compute(exp2)
-console.log(result)
