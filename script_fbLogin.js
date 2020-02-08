@@ -96,7 +96,7 @@ function fbLogin(params) {
 
 function btnLogin(params) {
     clickDommDesc('登录')
-}
+}  
 
 function btnNext(params) {
     clickDommText('下一步')

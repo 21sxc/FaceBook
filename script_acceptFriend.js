@@ -54,14 +54,34 @@ function clickFacebookUnblock(params) {
     clickDommDesc('Facebook,未加锁')
 }
 
+function clickDelete(params) {
+    swipe(540, 300, 540, 600,500)
+    sleep(2000)
+    clickDomText('删除')
+}
+
 function extraBox(params) {
     if (text('无法加为好友').exists()) {
+        sleep(2000)
         clickDommText('确认')
-        sleep(1000)
+        sleep(2000)
+        clickDelete()
     } else if (text('已经是朋友了').exists()) {
+        sleep(2000)
         clickDommText('确认')
-        sleep(1000)
-    } else {
+        sleep(2000)
+        clickDelete()
+    } else if (text('无法发送请求').exists()) {
+        sleep(2000)
+        clickDommText('确定')
+        sleep(2000)
+        clickDelete()
+    } else if (text('已成为好友').exists()) {
+        sleep(2000)
+        clickDommText('确定')
+        sleep(2000)
+        clickDelete() 
+    }else {
         return
     }
 }
@@ -89,8 +109,9 @@ function btnConfirm(params) {
     } else {
         btnAcceptFriend()
     }
+    extraBox()
     swipe(540, 300, 540, 1800, 1000)
-    sleep(3000)
+    sleep(5000)
     btnConfirm()
 }
 
@@ -101,14 +122,15 @@ function btnAcceptFriend(params) {
         const y = btnAdded.bounds().centerY()
         if (y > 216 && y < 1800) {
             btnAdded.parent().click()
-            sleep(1000)
+            sleep(2000)
             extraBox()
         }
     } else {
         return false
     }
+    extraBox()
     swipe(540, 450, 540, 1800, 1000)
-    sleep(3000)
+    sleep(5000)
 }
 
 function main(params) {

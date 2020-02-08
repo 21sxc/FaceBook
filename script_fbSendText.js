@@ -39,48 +39,59 @@ function clickFriendLabel() {
 
 function clickFriendAlbum() {
     clickDomDesc('所有联系人')
+    sleep(2000)
 }
 
 function clickremarks1() {
     clickDomDesc('联系方式')       // 点击查看详情
+    sleep(2000)
 }
 
 function clickremarks2() {
     clickDomDesc('查看详情')      // 点击查看详情
+    sleep(2000)
 }
 
 
 function btnText() {
     clickDommText('发消息')     // 点击发消息
+    sleep(2000)
 }
 
 function clickBlankContent() {
     clickDommText('Aa')     // 点击发送框
+    sleep(2000)
 }
 
 
 function btnSend() {
     clickDomDesc('Send')      // 点击发送按钮
+    sleep(2000)
 }
 
 function photo(params) {
     clickDomDesc('Choose photo')
+    sleep(2000)
 }
 
 function photoSend(params) {
     clickDomDesc('发送')
+    sleep(2000)
 }
 
 function btnRoomBack() {
     clickDomDesc('返回')     // 点击返回按钮
+    sleep(2000)
 }
 
 function btnPageBack(_params) {
     clickDomDesc('关闭内容信息')       // 点击关闭内容信息
+    sleep(2000)
 }
 
 function clickMessageUnblock(_params) {
     clickDomDesc('Messenger,未加锁')
+    sleep(2000)
 }
 
 function clickRefuse(_params) {
@@ -203,7 +214,8 @@ function textContent() {
     //         log('没有域名数据!')
     //     }
     // })
-    let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '86 18582312714+ ';
+    // let newText = 'اريد البحث عن اصدقاء  للدردشة في تطبيق الواتس اب رقمي الوتس اب هو' + '86 18582312714+ ';
+    let newText = 'مطلوب بنات للعمل مذيعات في تطبيق فيميغو من البيت المرتبات تبدأ من ١٠٠٠ دولار إلى ٢٥٠٠ دولار ' + 'للتواصل والاستفسار' + 'واتس اب' + '008615658030651'
     setText(0, newText)
     sleep(2000)
     btnSend()
@@ -276,6 +288,9 @@ function writeSwipeList(num) {
     _wirteSwipeNumDittoFiles.close()
 }
 
+let oldName = []
+let newName = []
+
 readSwipeNumList()
 let swipeNum = swipeNumList[0]
 function localPostion(params) {
@@ -296,35 +311,110 @@ function setFbMessage() {
     let btnConnect = desc('联系方式').findOne(3000)
     let allDetails = desc('查看详情').find()
     let allConnect = desc('联系方式').find()
-    clickRefuse()
+    doneNum = 0
     if (btnDetails) {
         allDetails.length && allDetails.forEach((item1) => {
             const y = item1.bounds().centerY()
-            if (y > 240 && y < 1790) {
-                clickRefuse()
+            if (y > 240 && y < 1790 && doneNum < 70) {
                 click(item1.bounds().centerX(), item1.bounds().centerY())
+                sleep(2000)
                 readList()
-                clickRefuse()
                 nameText()
+                doneNum ++
+                console.log(doneNum)
+            }
+        })
+    } else if (btnConnect) {            
+        allConnect.length && allConnect.forEach((item2) => {
+            const y = item2.bounds().centerY()
+            if (y > 240 && y < 1790 && doneNum < 70) {
+                click(item2.bounds().centerX(), item2.bounds().centerY())
+                sleep(2000)
+                readList()
+                nameText()
+                doneNum ++
+                console.log(doneNum)
+            } else {
+                return false
+            }
+        })
+    }
+    console.log(oldName)
+    console.log(newName)
+    swipe(540, 1730, 540, 60, 1000)
+    swipeNum++
+    console.log(swipeNum)
+    sleep(2000)
+    writeSwipeList(swipeNum)
+}
+
+function setFbMessage_next() {
+    let btnDetails = desc('查看详情').findOne(3000)
+    let btnConnect = desc('联系方式').findOne(3000)
+    let allDetails = desc('查看详情').find()
+    let allConnect = desc('联系方式').find()
+    doneNum = 0
+    if (btnDetails) {
+        allDetails.length && allDetails.forEach((item1) => {
+            const y = item1.bounds().centerY()
+            if (y > 240 && y < 1790 && doneNum < 70) {
+                click(item1.bounds().centerX(), item1.bounds().centerY())
+                sleep(2000)
+                readList()
+                nameText_next()
+                doneNum ++  
+                console.log(doneNum)
             }
         })
     } else if (btnConnect) {
         allConnect.length && allConnect.forEach((item2) => {
             const y = item2.bounds().centerY()
-            if (y > 240 && y < 1790) {
-                clickRefuse()
+            if (y > 240 && y < 1790 && doneNum < 70) {
                 click(item2.bounds().centerX(), item2.bounds().centerY())
+                sleep(2000)
                 readList()
-                clickRefuse()
-                nameText()
+                nameText_next()
+                doneNum ++
+                console.log(doneNum)
+            } else {
+                return false
             }
         })
     }
-    clickRefuse()
-    swipe(540, 1730, 540, 60, 1000)
-    swipeNum++
-    writeSwipeList(swipeNum)
+}
+
+function judgeNameList(params) {
+    console.log(newName)
+    console.log(oldName)
+    console.log('进入判断')  
+    let oldNameList = oldName.toString()
+    let newNameList = newName.toString()
+    console.log(oldNameList)
+    console.log(newNameList)
+        if (oldNameList == newNameList) {
+            console.log('数组相等')
+            throw Error
+        } else {
+            console.log(oldName)
+            console.log(newName)
+            console.log('数组不相等')
+            cleanList()
+            main()
+        }
+}
+
+function main(params) {
     setFbMessage()
+    sleep(2000)
+    setFbMessage_next()
+    judgeNameList()
+}
+
+function cleanList(params) {
+    oldName.splice(0, oldName.length)
+    console.log('清空旧')
+    newName.splice(0, newName.length)
+    console.log('清空新')
 }
 
 function nameText() {
@@ -333,13 +423,32 @@ function nameText() {
     let userText = userName.text()
     if (NameList.indexOf(userText) == -1) {
         userText.concat(NameList)
+        oldName.push(userText)
+        console.log(oldName)
         writeList(userText)
-        clickRefuse()
+        sleep(2000)
         btnText()
-        clickRefuse()
         judgeBlock()
     } else {
-        clickRefuse()
+        newName.push(userText)
+        console.log(newName)
+        btnPageBack()
+    }                
+}
+
+function nameText_next() {
+    let userID = id('(name removed)').find()
+    let userName = userID[8]
+    let userText = userName.text()
+    if (NameList.indexOf(userText) == -1) {
+        userText.concat(NameList)
+        newName.push(userText)
+        console.log(newName)
+        writeList(userText)
+        sleep(2000)
+        btnText()
+        judgeBlock()
+    } else {
         btnPageBack()
     }                
 }
@@ -348,7 +457,6 @@ function webBlocked(params) {
     let textFail = text('发送失败').findOne(3000)
     let textSure = text('确定').findOne(3000)
     if (textFail) {
-        clickRefuse()
         textSure.click()
     }
 }
@@ -357,9 +465,10 @@ function judgeBlock(params) {
     let AaContent = text('Aa').findOne(3000)
     if (AaContent) {
         TextSend()
+        sleep(2000)
     } else {
-        clickRefuse()
         btnRoomBack()
+        sleep(2000)
     }
 }
 
@@ -373,36 +482,28 @@ function pushPhoto(params) {
 }
 
 function TextSend(params) {
-    clickRefuse()
     clickBlankContent()
-    clickRefuse()
     textContent()
-    clickRefuse()
     webBlocked()
-    clickRefuse()
     btnRoomBack()
-    // clickRefuse()
-    // btnRoomBack()
 }
 
 function totalPley(params) {
     home()
     sleep(1000)
-    createFile()
+    // createFile()
     sleep(1000)
-    // recents()
-    // sleep(1000)
-    // clickMessageUnblock()
-    intoList()
+    recents()
+    sleep(1000)
+    clickMessageUnblock()
+    // intoList()
     sleep(1000)
     localPostion()
-    setFbMessage()
+    main()
 }
 
-// totalPley()
-
 function intoList(params) {
-    launchApp('Message')
+    // launchApp('Message')
     sleep(5000)
     clickFriendLabel()
     sleep(2000)
@@ -410,12 +511,4 @@ function intoList(params) {
     sleep(1000)
 }
 
-threads.start(function(){
-    //在新线程执行的代码
-    while(true){
-        clickRefuse()
-    }
-});
-while(true){
-    totalPley()
-}
+totalPley()
